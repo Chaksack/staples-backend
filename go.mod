@@ -1,4 +1,4 @@
-module github.com/Chaksack/centre
+module github.com/Chaksack/staples-backend
 
 go 1.17
 

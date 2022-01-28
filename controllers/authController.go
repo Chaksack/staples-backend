@@ -4,9 +4,9 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/Chaksack/centre/database"
-	"github.com/Chaksack/centre/models"
-	"github.com/Chaksack/centre/utils"
+	"github.com/Chaksack/staples-backend/database"
+	"github.com/Chaksack/staples-backend/models"
+	"github.com/Chaksack/staples-backend/utils"
 	"github.com/gofiber/fiber/v2"
 )
 

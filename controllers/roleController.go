@@ -3,8 +3,8 @@ package controllers
 import (
 	"strconv"
 
-	"github.com/Chaksack/centre/database"
-	"github.com/Chaksack/centre/models"
+	"github.com/Chaksack/staples-backend/database"
+	"github.com/Chaksack/staples-backend/models"
 	"github.com/gofiber/fiber/v2"
 )
 

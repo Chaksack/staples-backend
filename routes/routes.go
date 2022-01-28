@@ -1,8 +1,8 @@
 package routes
 
 import (
-	"github.com/Chaksack/centre/controllers"
-	"github.com/Chaksack/centre/middleware"
+	"github.com/Chaksack/staples-backend/controllers"
+	"github.com/Chaksack/staples-backend/middleware"
 	"github.com/gofiber/fiber/v2"
 )
 

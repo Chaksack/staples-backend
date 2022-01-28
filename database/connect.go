@@ -4,7 +4,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/Chaksack/centre/models"
+	"github.com/Chaksack/staples-backend/models"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
