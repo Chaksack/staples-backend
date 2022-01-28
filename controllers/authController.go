@@ -4,9 +4,9 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/Chaksack/staples-backend/database"
-	"github.com/Chaksack/staples-backend/models"
-	"github.com/Chaksack/staples-backend/utils"
+	"github.com/Chaksack/centrevision_backend/database"
+	"github.com/Chaksack/centrevision_backend/models"
+	"github.com/Chaksack/centrevision_backend/utils"
 	"github.com/gofiber/fiber/v2"
 )
 
@@ -105,4 +105,59 @@ func Logout(c *fiber.Ctx) error {
 	return c.JSON(fiber.Map{
 		"message": "success",
 	})
+}
+
+func UpdateInfo(c *fiber.Ctx) error {
+	var data map[string]string
+
+	if err := c.BodyParser(&data); err != nil {
+		return err
+	}
+
+	cookie := c.Cookies("jwt")
+
+	id, _ := utils.ParseJwt(cookie)
+
+	userId, _ := strconv.Atoi(id)
+
+	user := models.User{
+		Id:        uint(userId),
+		FirstName: data["first_name"],
+		LastName:  data["last_name"],
+		Email:     data["email"],
+	}
+
+	database.Database.Db.Updates(user)
+
+	return c.JSON(user)
+}
+
+func UpdatePassword(c *fiber.Ctx) error {
+	var data map[string]string
+
+	if err := c.BodyParser(&data); err != nil {
+		return err
+	}
+
+	if data["password"] != data["password_confirm"] {
+		c.Status(400)
+		return c.JSON(fiber.Map{
+			"message": "password does not match",
+		})
+	}
+
+	cookie := c.Cookies("jwt")
+
+	id, _ := utils.ParseJwt(cookie)
+	userId, _ := strconv.Atoi(id)
+
+	user := models.User{
+		Id: uint(userId),
+	}
+
+	user.SetPassword(data["passwrd"])
+
+	database.Database.Db.Updates(user)
+
+	return c.JSON(user)
 }

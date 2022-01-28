@@ -3,8 +3,8 @@ package controllers
 import (
 	"strconv"
 
-	"github.com/Chaksack/staples-backend/database"
-	"github.com/Chaksack/staples-backend/models"
+	"github.com/Chaksack/centrevision_backend/database"
+	"github.com/Chaksack/centrevision_backend/models"
 	"github.com/gofiber/fiber/v2"
 )
 
@@ -26,8 +26,10 @@ func CreateRole(c *fiber.Ctx) error {
 	list := roleDTO["permissions"].([]interface{})
 
 	permissions := make([]models.Permission, len(list))
+
 	for i, permissionId := range list {
 		id, _ := strconv.Atoi(permissionId.(string))
+
 		permissions[i] = models.Permission{
 			Id: uint(id),
 		}

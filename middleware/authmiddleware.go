@@ -1,7 +1,7 @@
 package middleware
 
 import (
-	"github.com/Chaksack/staples-backend/utils"
+	"github.com/Chaksack/centrevision_backend/utils"
 	"github.com/gofiber/fiber/v2"
 )
 

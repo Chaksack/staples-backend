@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/Chaksack/staples-backend/database"
-	"github.com/Chaksack/staples-backend/routes"
+	"github.com/Chaksack/centrevision_backend/database"
+	"github.com/Chaksack/centrevision_backend/routes"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
 )

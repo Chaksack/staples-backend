@@ -1,8 +1,8 @@
 package routes
 
 import (
-	"github.com/Chaksack/staples-backend/controllers"
-	"github.com/Chaksack/staples-backend/middleware"
+	"github.com/Chaksack/centrevision_backend/controllers"
+	"github.com/Chaksack/centrevision_backend/middleware"
 	"github.com/gofiber/fiber/v2"
 )
 
@@ -12,6 +12,9 @@ func Setup(app *fiber.App) {
 	app.Post("api/login", controllers.Login)
 
 	app.Use(middleware.Isauthenticated)
+
+	app.Put("api/users/info", controllers.UpdateInfo)
+	app.Put("api/users/password", controllers.UpdatePassword)
 
 	app.Get("api/user", controllers.User)
 	app.Post("api/logout", controllers.Logout)
@@ -33,4 +36,16 @@ func Setup(app *fiber.App) {
 	app.Get("api/permissions/:id", controllers.GetPermission)
 	app.Put("api/permissions/:id", controllers.UpdatePermission)
 	app.Delete("api/permissions/:id", controllers.DeletePermission)
+
+	app.Get("api/categorys", controllers.AllCategorys)
+	app.Post("api/categorys", controllers.CreateCategory)
+	app.Get("api/categorys/:id", controllers.GetCategory)
+	app.Put("api/categorys/:id", controllers.UpdateCategory)
+	app.Delete("api/categorys/:id", controllers.DeleteCategory)
+
+	app.Get("api/products", controllers.AllProducts)
+	app.Post("api/products", controllers.CreateProduct)
+	app.Get("api/products/:id", controllers.GetProduct)
+	app.Put("api/products/:id", controllers.UpdateProduct)
+	app.Delete("api/products/:id", controllers.DeleteProduct)
 }

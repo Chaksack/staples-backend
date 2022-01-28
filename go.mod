@@ -1,4 +1,4 @@
-module github.com/Chaksack/staples-backend
+module github.com/Chaksack/centrevision_backend
 
 go 1.17
 
